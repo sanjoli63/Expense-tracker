@@ -48,8 +48,8 @@ class TransactionList extends StatelessWidget {
                       DateFormat('yyyy-MM-dd').format(tx.date),
                       style: TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.w200,
-                        color: Colors.blueGrey,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.blueGrey[200],
                       ),
                     ),
                   ],

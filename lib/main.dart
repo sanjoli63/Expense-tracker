@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter App',
+      title: 'Personal Expense Tracker',
       home: MyHomePage(),
     );
   }
@@ -25,22 +25,37 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+        title: Text('Personal Expense Tracker'),
+        backgroundColor: Colors.blueGrey,
       ),
-      body: Column(
-        // mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            child: Card(
-              child: Text('Chart!'),
-              color: Colors.pink,
-              elevation: 6,
+      body: Container(
+        color: Colors.amber[100],
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(5),
+              width: double.infinity,
+              child: Card(
+                child: Center(
+                  child: Text(
+                    'Expenses',
+                    style: TextStyle(
+                      color: Colors.purple,
+                      fontStyle: FontStyle.italic,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                color: Colors.pink[200],
+                elevation: 6,
+              ),
             ),
-          ),
-          UserTransaction()
-        ],
+            UserTransaction()
+          ],
+        ),
       ),
     );
   }

@@ -39,11 +39,27 @@ class _UserTransactionState extends State<UserTransaction> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        NewTransaction(_addNewTransaction),
-        TransactionList(_userTransactions),
-      ],
+    return Container(
+      child: Column(
+        children: <Widget>[
+          NewTransaction(_addNewTransaction),
+          Card(
+            child: Center(
+              child: Text(
+                'List Of Transactions:',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            color: Colors.teal,
+            elevation: 6,
+          ),
+          TransactionList(_userTransactions),
+        ],
+      ),
     );
   }
 }
