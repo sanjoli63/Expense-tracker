@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+import '../models/transaction.dart';
+import 'package:intl/intl.dart';
+
+class Chart extends StatelessWidget {
+  final List<Transaction> recentT;
+
+  Chart(this.recentT);
+
+  List<Map<String, Object>> get groupedTransectionValues {
+    return List.generate(7, (index) {
+      final weekDay = DateTime.now().subtract(
+        Duration(days: index),
+      );
+      double totalSum = 0.0;
+
+      for (var i = 0; i < recentT.length; i++) {
+        if (recentT[i].date.day == weekDay.day &&
+            recentT[i].date.month == weekDay.month &&
+            recentT[i].date.year == weekDay.year) {
+          totalSum += recentT[i].amount;
+        }
+      }
+      return {
+        'Day': DateFormat.E().format(weekDay).substring(0, 1),
+        'amount': totalSum,
+      };
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 8,
+      margin: EdgeInsets.all(20),
+      child: Row(
+        children: groupedTransectionValues.map((data) {
+          return Text(
+            '${data['day']}: ${data['amount']}',
+          );
+        }).toList(),
+      ),
+    );
+  }
+}
