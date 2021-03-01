@@ -12,11 +12,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Personal Expense Tracker',
       theme: ThemeData(
-        primarySwatch: Colors.amber,
+        primarySwatch: Colors.purple,
         accentColor: Colors.green,
         fontFamily: 'Quicksand',
         textTheme: ThemeData.light().textTheme.copyWith(
-              headline6: TextStyle(
+              bodyText1: TextStyle(
                 fontFamily: 'OpenSans',
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -25,10 +25,13 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           color: Colors.blueGrey,
           textTheme: ThemeData.light().textTheme.copyWith(
-                headline6: TextStyle(
+                bodyText1: TextStyle(
                   fontFamily: 'OpenSans',
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
+                ),
+                button: TextStyle(
+                  color: Colors.white10,
                 ),
               ),
         ),
@@ -76,11 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txAmount) {
+  void _addNewTransaction(
+      String txTitle, double txAmount, DateTime chosenDate) {
     final newTx = Transaction(
       title: txTitle,
       amount: txAmount,
-      date: DateTime.now(),
+      date: chosenDate,
       id: DateTime.now().toString(),
     );
 
