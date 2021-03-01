@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Quicksand',
         textTheme: ThemeData.light().textTheme.copyWith(
               bodyText1: TextStyle(
+                color: Colors.brown,
                 fontFamily: 'OpenSans',
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -120,6 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(
           'Personal Expense Tracker',
+          style: Theme.of(context).textTheme.headline6,
         ),
         actions: <Widget>[
           IconButton(
