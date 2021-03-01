@@ -117,19 +117,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Personal Expense Tracker',
-          style: Theme.of(context).textTheme.headline6,
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () => _startAdd(context),
-          ),
-        ],
+    final apBar = AppBar(
+      title: Text(
+        'Personal Expense Tracker',
+        style: Theme.of(context).textTheme.headline6,
       ),
+      actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.add),
+          onPressed: () => _startAdd(context),
+        ),
+      ],
+    );
+    return Scaffold(
+      appBar: apBar,
       body: SingleChildScrollView(
         child: Container(
           // height: 700,
@@ -138,27 +139,39 @@ class _MyHomePageState extends State<MyHomePage> {
             // mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
+              // Container(
+              //   padding: EdgeInsets.all(5),
+              //   width: double.infinity,
+              //   child: Card(
+              //     child: Center(
+              //       child: Text(
+              //         'Expenses',
+              //         style: TextStyle(
+              //           color: Colors.purple,
+              //           fontStyle: FontStyle.italic,
+              //           fontSize: 25,
+              //           fontWeight: FontWeight.bold,
+              //         ),
+              //       ),
+              //     ),
+              //     color: Colors.pink[200],
+              //     elevation: 6,
+              //   ),
+              // ),
               Container(
-                padding: EdgeInsets.all(5),
-                width: double.infinity,
-                child: Card(
-                  child: Center(
-                    child: Text(
-                      'Expenses',
-                      style: TextStyle(
-                        color: Colors.purple,
-                        fontStyle: FontStyle.italic,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  color: Colors.pink[200],
-                  elevation: 6,
-                ),
+                child: Chart(_recentT),
+                height: (MediaQuery.of(context).size.height -
+                        apBar.preferredSize.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.4,
               ),
-              Chart(_recentT),
-              TransactionList(_userTransactions, _deleteTransaction),
+              Container(
+                  height: (MediaQuery.of(context).size.height -
+                          apBar.preferredSize.height -
+                          MediaQuery.of(context).padding.top) *
+                      0.6,
+                  child:
+                      TransactionList(_userTransactions, _deleteTransaction)),
             ],
           ),
         ),
