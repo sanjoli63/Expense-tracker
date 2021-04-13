@@ -1,5 +1,5 @@
-name: Personal_Expense
-description: A new Flutter project.
+name: personal_expense
+description: A new flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
