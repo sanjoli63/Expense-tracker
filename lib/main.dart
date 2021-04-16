@@ -1,10 +1,18 @@
 import './widgets/new_transaction.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import './widgets/transaction_list.dart';
 import './models/transaction.dart';
 import './widgets/chart.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -56,18 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
     //   id: 't1',
     //   title: 'New shoes',
     //   amount: 69.66,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't2',
-    //   title: 'clothes',
-    //   amount: 800.65,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't3',
-    //   title: 'purse',
-    //   amount: 500,
     //   date: DateTime.now(),
     // ),
   ];
