@@ -1,16 +1,16 @@
 import './widgets/new_transaction.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 import './widgets/transaction_list.dart';
 import './models/transaction.dart';
 import './widgets/chart.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  // ]);
   runApp(MyApp());
 }
 
@@ -52,8 +52,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  // String titleInput;
-  // String amountInput;
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -67,6 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
     //   date: DateTime.now(),
     // ),
   ];
+  bool _showChart = false;
+
   List<Transaction> get _recentT {
     return _userTransactions.where((tx) {
       return tx.date.isAfter(
@@ -129,45 +129,38 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: apBar,
       body: SingleChildScrollView(
         child: Container(
-          // height: 700,
-          // color: Theme.of(context).primaryColor,
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              // Container(
-              //   padding: EdgeInsets.all(5),
-              //   width: double.infinity,
-              //   child: Card(
-              //     child: Center(
-              //       child: Text(
-              //         'Expenses',
-              //         style: TextStyle(
-              //           color: Colors.purple,
-              //           fontStyle: FontStyle.italic,
-              //           fontSize: 25,
-              //           fontWeight: FontWeight.bold,
-              //         ),
-              //       ),
-              //     ),
-              //     color: Colors.pink[200],
-              //     elevation: 6,
-              //   ),
-              // ),
-              Container(
-                child: Chart(_recentT),
-                height: (MediaQuery.of(context).size.height -
-                        apBar.preferredSize.height -
-                        MediaQuery.of(context).padding.top) *
-                    0.3,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text('Show Chart'),
+                  Switch(
+                    value: _showChart,
+                    onChanged: (val) {
+                      setState(() {
+                        _showChart = val;
+                      });
+                    },
+                  ),
+                ],
               ),
-              Container(
-                  height: (MediaQuery.of(context).size.height -
-                          apBar.preferredSize.height -
-                          MediaQuery.of(context).padding.top) *
-                      0.7,
-                  child:
-                      TransactionList(_userTransactions, _deleteTransaction)),
+              _showChart
+                  ? Container(
+                      child: Chart(_recentT),
+                      height: (MediaQuery.of(context).size.height -
+                              apBar.preferredSize.height -
+                              MediaQuery.of(context).padding.top) *
+                          0.7,
+                    )
+                  : Container(
+                      height: (MediaQuery.of(context).size.height -
+                              apBar.preferredSize.height -
+                              MediaQuery.of(context).padding.top) *
+                          0.7,
+                      child: TransactionList(
+                          _userTransactions, _deleteTransaction)),
             ],
           ),
         ),
