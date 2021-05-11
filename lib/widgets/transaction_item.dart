@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
-import '../models/transaction.dart';
-import 'package:intl/intl.dart';
 import 'dart:math';
+
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+import '../models/transaction.dart';
 
 class TransactionItem extends StatefulWidget {
   const TransactionItem({
@@ -22,12 +24,14 @@ class _TransactionItemState extends State<TransactionItem> {
 
   @override
   void initState() {
-    const availabeColors = [
+    const availableColors = [
       Colors.red,
       Colors.black,
       Colors.blue,
+      Colors.purple,
     ];
-    _bgColor = availabeColors[Random().nextInt(4)];
+
+    _bgColor = availableColors[Random().nextInt(4)];
     super.initState();
   }
 
@@ -52,16 +56,16 @@ class _TransactionItemState extends State<TransactionItem> {
         ),
         title: Text(
           widget.transaction.title,
-          style: Theme.of(context).textTheme.bodyText1,
+          style: Theme.of(context).textTheme.headline6,
         ),
         subtitle: Text(
           DateFormat.yMMMd().format(widget.transaction.date),
         ),
         trailing: MediaQuery.of(context).size.width > 460
             ? TextButton.icon(
-                onPressed: () => widget.deleteTx(widget.transaction.id),
-                icon: Icon(Icons.delete),
+                icon: const Icon(Icons.delete),
                 label: const Text('Delete'),
+                onPressed: () => widget.deleteTx(widget.transaction.id),
               )
             : IconButton(
                 icon: const Icon(Icons.delete),

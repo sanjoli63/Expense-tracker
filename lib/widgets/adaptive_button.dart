@@ -1,6 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'dart:io';
 
 class AdaptiveFlatButton extends StatelessWidget {
   final String text;
@@ -10,26 +11,24 @@ class AdaptiveFlatButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Platform.isIOS
-          ? CupertinoButton(
-              child: Text(
-                text,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
+    return Platform.isIOS
+        ? CupertinoButton(
+            child: Text(
+              text,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
               ),
-              onPressed: handler,
-            )
-          : TextButton(
-              child: Text(
-                text,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              onPressed: handler,
             ),
-    );
+            onPressed: handler,
+          )
+        : TextButton(
+            child: Text(
+              text,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            onPressed: handler,
+          );
   }
 }
