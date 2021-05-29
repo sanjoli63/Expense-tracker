@@ -1,6 +1,4 @@
 # [Expense Tracker]
-For live demo click [here]
-
 Smartly manage all your expenses!
 
 ## Screenshots
