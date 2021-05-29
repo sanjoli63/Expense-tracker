@@ -4,30 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class AdaptiveFlatButton extends StatelessWidget {
-  final String text;
+  final Icon icon;
   final Function handler;
 
-  AdaptiveFlatButton(this.text, this.handler);
+  AdaptiveFlatButton(this.icon, this.handler);
 
   @override
   Widget build(BuildContext context) {
     return Platform.isIOS
         ? CupertinoButton(
-            child: Text(
-              text,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            child: icon,
             onPressed: handler,
           )
         : TextButton(
-            child: Text(
-              text,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            child: icon,
             onPressed: handler,
           );
   }

@@ -121,11 +121,12 @@ class _NewTransactionState extends State<NewTransaction> {
                     Expanded(
                       child: Text(
                         _selectedDate == null
-                            ? 'No Date Chosen!'
-                            : 'Picked Date: ${DateFormat.yMd().format(_selectedDate)}',
+                            ? 'Choose Date'
+                            : ' ${DateFormat.yMd().format(_selectedDate)}',
                       ),
                     ),
-                    AdaptiveFlatButton('Choose Date', _presentDatePicker)
+                    AdaptiveFlatButton(
+                        Icon(Icons.calendar_today), _presentDatePicker)
                   ],
                 ),
               ),
