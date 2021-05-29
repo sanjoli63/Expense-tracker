@@ -1,5 +1,5 @@
 # [Expense Tracker]
-For live demo click [here](https://amitpatil215.github.io/Expense-Tracker/#/)
+For live demo click [here]
 
 Smartly manage all your expenses!
 
@@ -8,7 +8,7 @@ Smartly manage all your expenses!
 <img src="https://user-images.githubusercontent.com/71957235/120063725-327aee80-c086-11eb-8ffd-d40a69ae646b.png" width=250>
 
 ### Add Your Transaction
-<img src="https://user-images.githubusercontent.com/71957235/120063813-b3d28100-c086-11eb-97de-81c85b460017.png" width=250>   <img src="https://user-images.githubusercontent.com/71957235/120063815-b59c4480-c086-11eb-8427-c9fa6c12dc2f.png" width=250>   
+<img src="https://user-images.githubusercontent.com/71957235/120063813-b3d28100-c086-11eb-97de-81c85b460017.png" width=250>   <img src="https://user-images.githubusercontent.com/71957235/120063815-b59c4480-c086-11eb-8427-c9fa6c12dc2f.png" width=250>
 
 ### No Transactions
 <img src="https://user-images.githubusercontent.com/71957235/120063861-eed4b480-c086-11eb-9145-89da7d16f46e.png" width=250>
