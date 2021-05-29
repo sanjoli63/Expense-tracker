@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../models/transaction.dart';
 import './transaction_item.dart';
@@ -25,8 +26,8 @@ class TransactionList extends StatelessWidget {
                 ),
                 Container(
                     height: constraints.maxHeight * 0.6,
-                    child: Image.asset(
-                      'assets/images/waiting.png',
+                    child: SvgPicture.asset(
+                      'assets/images/undraw_wallet_aym5.svg',
                       fit: BoxFit.cover,
                     )),
               ],
